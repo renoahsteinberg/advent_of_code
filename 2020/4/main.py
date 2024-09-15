@@ -26,7 +26,7 @@ def part1(inp):
 
 
 if __name__ == "__main__":
-    with open("/home/clay/projects/advent_of_code/2020/4/test_input", "r") as f:
+    with open("/home/clay/projects/advent_of_code/2020/4/inp", "r") as f:
         # generate input
         # iterate over each line seperate, append each line to an array called current Passport
         # if line is empty, start new array
@@ -34,15 +34,13 @@ if __name__ == "__main__":
         # disgusting ahh solution
 
         inp = [x.split() for x in f.readlines()] 
-        inplist = []
-        tmplist = []
-        i = 0
-        while i < len(inp)-1:
+        inplist, tmplist, i = [], [], 0
+        while i < len(inp):
             if not inp[i]:
-                i += 1
                 inplist.append(tmplist)
                 tmplist = []
             tmplist += inp[i]
             i += 1
+        inplist.append(tmplist)
 
     print(part1(inplist))

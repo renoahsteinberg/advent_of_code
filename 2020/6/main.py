@@ -13,18 +13,16 @@ def part1(inp):
 
 
 if __name__ == "__main__":
-    with open("/home/clay/projects/advent_of_code/2020/6/test_input", "r") as f:
-        inp = [x.split() for x in f.readlines()] 
-        inplist = []
-        tmplist = []
-        i = 0
-        while i < len(inp)-1:
+    with open("/home/clay/projects/advent_of_code/2020/6/inp", "r") as f:
+        inp = [x.split() for x in f.readlines()]
+        inplist, tmplist, i = [], [], 0
+        while i < len(inp):
             if not inp[i]:
-                i += 1
                 inplist.append(tmplist)
                 tmplist = []
             tmplist += inp[i]
             i += 1
+        inplist.append(tmplist)
 
     print(part1(inplist))
 
