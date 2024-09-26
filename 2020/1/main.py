@@ -11,6 +11,7 @@ def part1(nums, target):
         hash_table[target - nums[i]] = i
     return 0
 
+
 def part2(nums, target):
     # find the number-triplet that adds up to 2020
     # similar to the three-sum problem on LeetCode

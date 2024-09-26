@@ -22,25 +22,30 @@ def part1(inp):
 
     return valid
 
-    #return inp
 
+def part2(inp):
+    # byr 4 digits between 1920-2002
+    # iyr 4 digits between 2010-2020
+    # eyr 4 digits between 2020-2030
+    # hgt number followed by
+    # - cm between 150-193 
+    # - in between 59-76
+    # hcl valid hex color followed by 
+    # ecl one of amb blu brn gry grn hzl oth
+    # pid 9 digits including leading zeroes
+    # cid ignored
+
+    valid = 0
+
+    for passport in inp:
+        valid = True
+        for val in passport:
+            pass
 
 if __name__ == "__main__":
     with open("/home/clay/projects/advent_of_code/2020/4/inp", "r") as f:
-        # generate input
-        # iterate over each line seperate, append each line to an array called current Passport
-        # if line is empty, start new array
-        
-        # disgusting ahh solution
+        inp = f.read().strip().split("\n\n")
+        inplist = [passport.replace("\n", " ").split() for passport in inp]
 
-        inp = [x.split() for x in f.readlines()] 
-        inplist, tmplist, i = [], [], 0
-        while i < len(inp):
-            if not inp[i]:
-                inplist.append(tmplist)
-                tmplist = []
-            tmplist += inp[i]
-            i += 1
-        inplist.append(tmplist)
 
     print(part1(inplist))
